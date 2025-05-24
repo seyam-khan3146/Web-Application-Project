@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Faculty Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>👨‍🏫 Faculty Dashboard</h1>
+    <div class="grid-button-group">
+      <a href="#" class="btn glow">➕ Add Student</a>
+      <a href="#" class="btn glow">📝 Add Result</a>
+    </div>
+
+    <form onsubmit="return validateFacultyForm()" class="form">
+      <input type="text" id="studentName" placeholder="🧑 Enter Student Name" />
+      <input type="number" id="score" placeholder="📊 Enter Score" />
+      <span id="faculty-error-msg" class="error-msg"></span>
+      <input type="submit" class="btn glow" value="Submit Result" />
+    </form>
+  </main>
+
+  <div class="logout-container">
+    <a href="index.html" class="btn logout-btn">🚪 Logout</a>
+  </div>
+
+  <script>
+    function validateFacultyForm() {
+      const name = document.getElementById("studentName").value.trim();
+      const score = document.getElementById("score").value.trim();
+      const error = document.getElementById("faculty-error-msg");
+
+      if (name === "" || score === "") {
+        error.textContent = "All fields are required!";
+        return false;
+      }
+
+      error.textContent = "";
+      return true;
+    }
+  </script>
+</body>
+</html>
+
+
+
